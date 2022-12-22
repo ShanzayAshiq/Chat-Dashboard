@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbox</title>
+  <link rel="stylesheet" href="sass/main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/c631f8630e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="container">
+      <!-- sidebar -->
+      <div class="sidebar" id="side_menu">
+        <div id="close">
+          <i class="fa-solid fa-times fa-3x"></i>
+        </div>
+        <div class="profile">
+          <div class="img">
+            <img src="/images/User Photo (1).png" />
+          </div>
+          <select name="Henry" id="user">
+            <option value="Henry">Henry Jabbawockiez</option>
+          </select>
+        </div>
+        <div class="nav">
+          <ul>
+            <li>
+              <a href="#"><i class="fa-solid fa-house"></i>HOME</a>
+            </li>
+            <li>
+              <a href="#" id="chat_sidebar"><i class="fa-solid fa-comment-dots"></i>CHATS</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-regular fa-user"></i>CONTACT</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-regular fa-bell"></i>NOTIFICATIONS</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-calendar-days"></i>CALENDAR</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-gear"></i>SETTINGS</a>
+            </li>
+            <div class="log">
+              <li>
+                <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>LOG
+                  OUT</a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- center section -->
+      <div class="center">
+        <div class="title">
+          <div class="bar" id="show_btn">
+            <i class="fa-solid fa-bars fa-3x"></i>
+          </div>
+          <div class="chat">
+            <h1>Chats</h1>
+            <select name="Recent Chats" id="Chats">
+              <option value="Chats">Recent Chats</option>
+            </select>
+          </div>
+          <div class="new_chat">
+            <i class="fa-solid fa-plus"></i>
+            <p>Create New Chat</p>
+          </div>
+        </div>
+        <div class="search_box">
+          <div class="search">
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+          </div>
+          <div class="rect"></div>
+          <div class="message">
+            <select name="message" id="message_box">
+              <option value="message">Messages</option>
+            </select>
+          </div>
+        </div>
+        <div class="user_chats" id="all_chats">
+          <!-- Luy Robin -->
+          <div class="Robin">
+            <div class="user">
+              <div class="dot"></div>
+              <div class="image">
+                <img src="/images/Mask Group.png" alt="" />
+              </div>
+              <div class="user_info">
+                <div class="sub">
+                  <h1>Luy Robin</h1>
+                  <img src="/images/Group 5.png" alt="" />
+                  <span> writes</span>
+                </div>
+                <div class="ago">1 minute ago</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="context">
+                <p>
+                  Most of its text is made up from sections 1.10.32–3 of
+                  Cicero's De finibus bonorum et malorum (On the Boundaries of
+                  Goods and Evils; finibus may also be translated as purposes).
+                </p>
+              </div>
+              <div class="indicator">
+                <div class="num">2</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jared Sunn -->
+          <div class="Jared">
+            <div class="user">
+              <div class="dot"></div>
+              <div class="image">
+                <img src="/images/Jared.png" alt="" />
+              </div>
+              <div class="user_info">
+                <div class="sub">
+                  <h1>Jared Sunn</h1>
+                  <img src="/images/Rec_Icon.png" alt="" />
+                  <span> records voice message </span>
+                </div>
+                <div class="ago">1 minute ago</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="context">
+                <div class="voice">
+                  <a href="#"><i class="fa-solid fa-microphone"></i>Voice message (01:15)
+                  </a>
+                </div>
+                <div class="bttn">
+                  <div class="rect_blue">
+                    <a href="#"><i class="fa-regular fa-file-lines"></i>Files (x2)
+                    </a>
+                  </div>
+                  <div class="rect_pink">
+                    <a href="#"><i class="fa-regular fa-image"></i>Photo </a>
+                  </div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="num">1</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nika Jerrardo -->
+          <div class="Nika" id="Nika_Jerrado">
+            <div class="user">
+              <div class="image">
+                <img src="/images/nika.png" alt="" />
+              </div>
+              <div class="user_info">
+                <div class="sub">
+                  <h1>Nika Jerrado</h1>
+                  <span> last online 5 hours ago </span>
+                </div>
+                <div class="ago">3 days ago</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="context">
+                <p>
+                  Cicero famously orated against his political opponent Lucius
+                  Sergius Catilina.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- David Amrosa -->
+          <div class="David">
+            <div class="user">
+              <div class="image">
+                <img src="/images/David.png" alt="" />
+              </div>
+              <div class="user_info">
+                <div class="sub">
+                  <h1>david Amrosa
+                  </h1>
+                  <span>3 days ago</span>
+                </div>
+                <div class="ago">3 days ago</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="context">
+                <p>
+                  Cicero famously orated against his political opponent Lucius
+                  Sergius Catilina.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nika chat section -->
+      <div class="chatbox">
+        <div class="Nika_rect">
+          <div class="user">
+            <div class="back"><i class="fa-solid fa-arrow-left fa-2x"></i></div>
+            <div class="image">
+              <img src="/images/nika.png" alt="" />
+            </div>
+            <div class="user_info">
+              <div class="sub">
+                <h1>Nika Jerrardo</h1>
+                <span> last online 5 hours ago</span>
+              </div>
+            </div>
+            <div class="right_icon">
+              <div class="file_icon">
+                <a href="#"><i class="fa-solid fa-paperclip"></i>
+                </a>
+              </div>
+              <div class="more_icon">
+                <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="rectangle">
+          </div>
+        </div>
+        <div class="chat" id="all_chats">
+          <div class="chat_blue">
+            <div class="sms">
+              <div class="image">
+                <img src="/images/nika.png" alt="">
+              </div>
+              <div class="text">
+                <div class="rect1">
+                  <p>Hello! Finally found the time to write to you) I need your help in creating interactive animations
+                    for
+                    my mobile application.
+                  </p>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+
+            <div class="sms">
+              <div class="text">
+                <div class="rect2">
+                  <p>Can I send you files?</p>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="ago">
+              4 days ago
+            </div>
+          </div>
+
+          <div class="white">
+            <div class="chat_white">
+              <i class="fa-solid fa-ellipsis"></i>
+              <div class="rect_white">
+                <p>Hey! Okay, send out.</p>
+              </div>
+              <i class="fa-solid fa-check-double"></i>
+            </div>
+            <div class="ago">4 days ago</div>
+          </div>
+          <div class="rect3_blue">
+            <div class="sms">
+              <div class="image">
+                <img src="/images/nika.png" alt="">
+              </div>
+              <div class="text">
+                <div class="rect3">
+                  <img src="/images/File icon (1).png" alt="">
+                  <div class="inner_text">
+                    <p>Style.zip</p>
+                    <span>41.36 Mb</span>
+                  </div>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="ago">4 days ago</div>
+          </div>
+          <div class="line_break">
+            <div class="rectangle_left"></div>
+            <span>3 days ago</span>
+            <div class="rectangle_right"></div>
+          </div>
+          <div class="white">
+            <div class="chat_white">
+              <i class="fa-solid fa-ellipsis"></i>
+              <div class="rect_white2">
+                <p>Hello! I tweaked everything you asked. I am sending the finished file.
+                </p>
+                <div class="text_icon"><span>(52.05 Mb) NEW_Style.zip
+                  </span>
+                  <img src="/images/file.png" alt="">
+                </div>
+              </div>
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="ago">4 days ago</div>
+          </div>
+
+          <div class="side_icons">
+            <div class="icon">
+              <a href="#"><i class="fa-solid fa-film"></i></a>
+            </div>
+            <div class="icon">
+              <a href="#"><i class="fa-regular fa-image"></i></a>
+            </div>
+            <div class="icon_file">
+              <a href="#"><i class="fa-regular fa-file"></i></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="input_text">
+          <div class="icon">
+            <a href="#"><i class="fa-solid fa-plus"></i></a>
+          </div>
+          <div class="text">
+            <input type="text" placeholder="Type a message here">
+          </div>
+          <img src="/images/Smile icon.png" alt="">
+          <div class="icon_send">
+            <a href="#"><i class="fa-solid fa-location-arrow"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $('#show_btn').click(function () {
+          $('#side_menu').show();
+        });
+      });
+      $(document).ready(function () {
+        $('#close').click(function () {
+          $('#side_menu').hide();
+        });
+      });
+      $(document).ready(function () {
+        $('#Nika_Jerrado').click(function () {
+          $('.chatbox').show();
+        });
+      });
+      $(document).ready(function () {
+        $('.back').click(function () {
+          $('.chatbox').hide();
+        });
+      });
+
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,686 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: TT-norms;
+  font-size: 16px;
+  font-style: normal;
+}
+@font-face {
+  font-family: TT-norms;
+  src: url(/fonts/TTNorms-Medium.otf);
+}
+$pi: #ff3366;
+$gr: #00c305;
+$bl: #2a8bf2;
+#all_chats {
+  &::-webkit-scrollbar {
+    width: 6px;
+    background: #b7bdcb;
+    box-shadow: 4px 4px 15px rgba(112, 124, 151, 0.05),
+      2px 2px 10px rgba(112, 124, 151, 0.1),
+      1px 1px 50px rgba(112, 124, 151, 0.15);
+    border-radius: 10px;
+  }
+}
+
+@mixin select {
+  border: none;
+  color: #707c97;
+  font-size: 18px;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gradient_center {
+  background: linear-gradient(92.68deg, #7cb8f7 0%, #2a8bf2 100%);
+  box-shadow: 6px 6px 25px rgba(42, 139, 242, 0.15),
+    4px 4px 25px rgba(42, 139, 242, 0.05),
+    10px 6px 25px rgba(42, 139, 242, 0.15);
+  border-radius: 6px;
+  color: white;
+}
+
+@mixin chat_gradient($width, $height, $margin) {
+  background: linear-gradient(90.54deg, #60a9f6 0%, #2a8bf2 100%);
+  box-shadow: 10px 10px 25px rgba(42, 139, 242, 0.1),
+    15px 15px 35px rgba(42, 139, 242, 0.05),
+    10px 10px 50px rgba(42, 139, 242, 0.1);
+  border-radius: 0px 10px 10px 10px;
+  color: white;
+  width: $width;
+  height: $height;
+  margin-left: 24px;
+  p {
+    margin: $margin;
+    line-height: 26px;
+  }
+}
+
+@mixin chat_white($width, $height, $margin) {
+  width: $width;
+  height: $height;
+  background: #ffffff;
+  border: 1px solid rgba(112, 124, 151, 0.25);
+  box-shadow: 10px 10px 25px rgba(112, 124, 151, 0.05),
+    15px 15px 35px rgba(112, 124, 151, 0.05);
+  margin-top: 15px;
+  margin-left: $margin;
+  color: rgba(112, 124, 151, 1);
+  border-radius: 10px 10px 0 10px;
+  p {
+    margin: $margin;
+    line-height: 26px;
+  }
+  i {
+    color: #b7bdcb;
+  }
+}
+
+@mixin ellipse($width, $height, $top, $left, $color) {
+  width: $width;
+  height: $height;
+  top: $top;
+  left: $left;
+  background: $color;
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  box-shadow: 4px 4px 15px rgba(198, 27, 74, 0.05),
+    2px 2px 10px rgba(198, 27, 74, 0.1), 1px 1px 50px rgba(198, 27, 74, 0.15);
+  .num {
+    color: #f5f4fb;
+    font-size: 13px;
+  }
+}
+
+@mixin chat_rect {
+  width: 580px;
+  height: 220px;
+  background: #ffffff;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+@mixin bttn($width, $height, $color, $bg) {
+  width: $width;
+  height: $height;
+  color: $color;
+  font-size: 14px;
+  background-color: $bg;
+  border-radius: 20px;
+  margin-top: 13px;
+}
+
+@mixin users {
+  .user {
+    display: flex;
+    .back{
+      display: none;
+    }
+  }
+  .image {
+    img {
+      margin: 20px 20px 17px 20px;
+    }
+  }
+  .user_info {
+    margin-top: 23px;
+    display: flex;
+    justify-content: space-between;
+    width: 427px;
+    height: 46px;
+    span {
+      color: $bl;
+    }
+    h1 {
+      padding-bottom: 6px;
+      color: black;
+    }
+    .ago {
+      color: #707c97;
+    }
+  }
+}
+
+@mixin content {
+  .content {
+    margin-left: 20px;
+    .context {
+      width: 450px;
+      p {
+        line-height: 26px;
+        color: #707c97;
+      }
+    }
+  }
+}
+
+@mixin Nike_rect($width, $height, $background, $radius) {
+  width: $width;
+  height: $height;
+  background: $background;
+  border-radius: $radius;
+}
+
+@mixin ago($margin) {
+  margin-top: 5px;
+  margin-left: $margin;
+  color: rgba(112, 124, 151, 0.7);
+  font-size: 14px;
+}
+
+@mixin icons {
+  width: 40px;
+  height: 40px;
+  background: #2a8bf2;
+  border-radius: 50%;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03),
+    0px 7px 25px rgba(42, 139, 242, 0.03), 0px 5px 25px rgba(42, 139, 242, 0.07);
+  margin-bottom: 10px;
+  @include flex();
+  i {
+    color: #f5f4fb;
+  }
+}
+
+a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #707c97;
+}
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1920px;
+  height: 100vh;
+}
+.container {
+  width: 1920px;
+  display: flex;
+  background: linear-gradient(180deg, #F3F3FB 0%, #FDFBFD 100%);
+}
+// sidebar section
+.sidebar {
+  width: 290px;
+  background: #ffffff;
+  box-shadow: 14.0351px 0px 25px rgba(86, 128, 248, 0.03),
+    35.0877px 0px 70px rgba(86, 128, 248, 0.05),
+    23.8596px 5.61404px 50px rgba(0, 0, 0, 0.02);
+    #close{
+      float: right;
+      display: none;
+    }
+  .profile {
+    @include flex();
+    flex-direction: column;
+    gap: 10px;
+    .img {
+      margin-top: 87px;
+    }
+    #user {
+      @include select();
+      color: #060303;
+    }
+  }
+  .nav {
+    margin-top: 76px;
+    ul {
+      @include flex();
+      align-items: flex-start;
+      flex-direction: column;
+      row-gap: 30px;
+      li {
+        list-style: none;
+        #chat_sidebar {
+          border-left: 3px solid #2a8bf2;
+          height: 40px;
+          i {
+            color: #2a8bf2;
+          }
+          color: #2a8bf2;
+        }
+        i {
+          margin-left: 38px;
+          padding: 17px;
+          color: #707c97;
+        }
+        a:hover {
+          color: rgb(13, 159, 211);
+        }
+      }
+      .log {
+        margin-top: 230px;
+      }
+    }
+  }
+}
+// <!-- center section -->
+.center {
+  width: 597px;
+  margin-left: 59px;
+  margin-top: 109px;
+  .title {
+    @include flex();
+    justify-content: space-between;
+    width: 581px;
+    .bar{
+       display: none;
+    }
+    .chat {
+      h1 {
+        font-size: 36px;
+      }
+      #Chats {
+        @include select();
+        margin-top: 15px;
+        background: none;
+      }
+    }
+    .new_chat {
+      @include flex();
+      width: 240px;
+      height: 60px;
+      @include gradient_center();
+      p {
+        font-size: 20px;
+        padding: 7px;
+      }
+    }
+  }
+  .search_box {
+    @include flex();
+    justify-content: space-between;
+    width: 580px;
+    background: #FFFFFF;
+    margin-top: 30px;
+    border-radius: 6px;
+  }
+  .search {
+    i {
+      margin-left: 40px;
+      padding-right: 10px;
+    }
+  }
+  #message_box {
+    @include select();
+    margin-right: 52px;
+  }
+  .rect {
+    margin-left: 267px;
+    width: 2px;
+    height: 70px;
+    background: #f5f4fb;
+  }
+
+  #all_chats {
+    width: 597px;
+    height: 800px;
+    overflow: hidden;
+    overflow-y: scroll;
+    // Luy Robin
+    .Robin {
+      @include chat_rect();
+      position: relative;
+      .dot {
+        @include ellipse(10px, 10px, 33px, 43px, $gr);
+      }
+      @include users;
+      @include content();
+    }
+    .indicator {
+      @include ellipse(20px, 20px, 110px, 520px, $pi);
+      @include flex();
+    }
+
+    // Jared Sunn
+    .Jared {
+      @include chat_rect();
+      position: relative;
+      .dot {
+        @include ellipse(10px, 10px, 33px, 43px, $gr);
+      }
+      @include users();
+      @include content();
+      .voice {
+        i {
+          padding-right: 10px;
+        }
+      }
+      .bttn {
+        display: flex;
+        gap: 20px;
+        .rect_blue {
+          @include bttn(110px, 40px, $bl, rgba(42, 139, 242, 0.25));
+          @include flex();
+          i {
+            padding-right: 5px;
+          }
+          a {
+            color: #2a8bf2;
+          }
+        }
+        .rect_pink {
+          @include bttn(94px, 40px, $pi, rgba(255, 51, 102, 0.25));
+          @include flex();
+          i {
+            padding-right: 5px;
+          }
+          a {
+            color: #ff3366;
+          }
+        }
+      }
+      .indicator {
+        @include ellipse(20px, 20px, 110px, 520px, $pi);
+        @include flex();
+      }
+    }
+
+    // Nika Jerrado
+    .Nika {
+      @include chat_rect();
+      @include gradient_center();
+      @include users();
+      @include content();
+      .user_info {
+        span {
+          color: white;
+        }
+        .ago {
+          color: #ffffff;
+        }
+      }
+      .content {
+        .context {
+          p {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    //  David Armosa
+    .David {
+      @include chat_rect();
+      @include users();
+      @include content();
+    }
+  }
+}
+//  Nika chat section
+.chatbox {
+  margin: 110px 60px 40px 64px;
+  background: #FFFFFF;
+  width: 850px;
+  .Nika_rect {
+    @include Nike_rect(850px, 110px, #fafbff, 6px 6px 0px 0px);
+    position: relative;
+    @include users();
+    .image {
+      img {
+        margin: 28px 20px 28px 60px;
+      }
+    }
+    .user_info {
+      margin-top: 28px;
+      width: 236px;
+    }
+
+    .file_icon {
+      @include ellipse(52px, 52px, 29px, 688px, #ffffff);
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03),
+        0px 7px 25px rgba(42, 139, 242, 0.03),
+        0px 5px 25px rgba(42, 139, 242, 0.07);
+      @include flex();
+    }
+    .more_icon {
+      @include ellipse(52px, 52px, 29px, 760px, #ffffff);
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03),
+        0px 7px 25px rgba(42, 139, 242, 0.03),
+        0px 5px 25px rgba(42, 139, 242, 0.07);
+      @include flex();
+    }
+  }
+  .rectangle {
+    @include Nike_rect(850px, 2px, rgba(112, 124, 151, 0.1), none);
+  }
+  .chat {
+    margin: 29px 0 0 60px;
+    height: 670px;
+    overflow: hidden;
+    overflow-y: scroll;
+    img {
+      width: 36px;
+      height: 36px;
+    }
+    i {
+      color: #b7bdcb;
+      margin-left: 18px;
+    }
+    .text {
+      @include flex();
+    }
+    .sms {
+      display: flex;
+      .rect1 {
+        @include chat_gradient(520px, 85px, 14px 27px 25px 22px);
+      }
+    }
+
+    .rect2 {
+      @include chat_gradient(192px, 50px, 14px 22px 17px 22px);
+      margin-left: 60px;
+      margin-top: 15px;
+    }
+    .ago {
+      @include ago(184px);
+    }
+    .white {
+      .chat_white {
+        @include flex();
+        justify-content: right;
+        gap: 14px;
+        i {
+          color: #b7bdcb;
+          margin-right: 60px;
+        }
+        .rect_white {
+          @include chat_white(196px, 50px, 14px 22px 17px 21px);
+        }
+      }
+      .ago {
+        @include ago(590px);
+      }
+    }
+    .rect3_blue {
+      .rect3 {
+        @include chat_gradient(180px, 90px, 14px 22px 17px 22px);
+        @include flex();
+        justify-content: flex-start;
+        img {
+          margin: 25px 20px 25px 25px;
+        }
+        .inner_text {
+          @include flex();
+          flex-direction: column;
+          p {
+            margin: 0;
+          }
+          span {
+            font-size: 14px;
+            line-height: 26px;
+          }
+        }
+      }
+      .ago {
+        @include ago(172px);
+      }
+    }
+    .line_break {
+      margin-top: 17px;
+      @include flex();
+      justify-content: space-between;
+      .rectangle_left {
+        @include Nike_rect(320px, 1px, rgba(112, 124, 151, 0.15), 2px);
+      }
+      span {
+        color: rgba(112, 124, 151, 0.7);
+      }
+      .rectangle_right {
+        @include Nike_rect(300px, 1px, rgba(112, 124, 151, 0.15), 2px);
+      }
+    }
+    .white {
+      .rect_white2 {
+        @include chat_white(416px, 100px, 11px 14px 1px 18px);
+        .text_icon {
+          margin-left: 163px;
+          span {
+            color: rgba(42, 139, 242, 1);
+            padding-right: 6px;
+          }
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      .ago {
+        @include ago(615px);
+      }
+    }
+    .side_icons {
+      i {
+        margin: 0;
+      }
+      .icon {
+        @include icons();
+      }
+      .icon_file {
+        @include icons();
+        margin-bottom: 0;
+      }
+    }
+  }
+  .input_text {
+    position: fixed;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid rgba(112, 124, 151, 0.15);
+    margin: 0 60px 38px 60px;
+    .text {
+      input {
+        font-size: 20px;
+        margin-right: 335px;
+        border: none;
+      }
+    }
+    .icon {
+      @include icons();
+      margin: 15px 21px 30px 0;
+    }
+    img {
+      margin-right: 20px;
+    }
+    .icon_send {
+      @include icons();
+      margin-left: 12px;
+    }
+  }
+}
+
+// Responsive
+@media (max-width:425px){
+  .main{
+    width: 700px;
+    .container{
+      width: 700px;
+    }
+  }
+  .sidebar{
+    display: none;
+    margin-top: 0;
+    #close{
+      display: block;
+      color: #707c97;
+    }
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+  .chatbox{
+    display: none;
+    position: absolute;
+    margin-top: 300px;
+    width: 600px;
+    .Nika_rect{
+      width: 600px;
+      .file_icon{
+        left: 450px;
+      }
+      .more_icon{
+        left: 520px;
+      }
+      .rectangle{
+        width: 100%;
+      }
+      .user{
+        align-items: center;
+        .back{
+          display: block;
+          color: #707c97;
+          padding: 6px;
+        }
+        img{
+          margin: 20px 20px 17px 20px;}
+          .user_info{
+            margin-top: 0;
+          }
+      }
+      .white{
+        .ago{
+          margin-left: 415px;
+        }
+      }
+    }
+    .chat{
+      margin: 0;
+      width: 600px;
+      .white{
+        .ago{
+          margin-left: 425px;
+        }
+      }
+    }
+    .input_text{
+      margin: 0;
+      position: absolute;
+      .text{
+        input{
+          margin-right: 205px;
+        }
+      }
+    }
+  }
+  .center{
+    width: 100vw;
+    position: relative;
+    .title{
+      justify-content: space-evenly;
+      .bar{
+        display: block;
+        color: #707c97;
+      }
+
+    }
+    .user_chats{
+      width: 100vw;
+    }
+  }
+}
